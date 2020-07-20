@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/todos', 'TodoController@index');
+
+Route::get('/todos/create', 'TodoController@create');
+
+Route::get('/todos/edit/{id}', 'TodoController@edit');
+
+Route::patch('todos/save/{id}', 'TodoController@save');
+
+Route::get('/todos/delete/{id}','TodoController@destroy');
+
+Route::post('todos/create', 'TodoController@Store');
+
+Route::get('/todo-search','TodoController@search');
+
+Route::put('/update', 'TodoController@update');
+
+Route::post('/post-sortable','TodoController@dragdrop');
+
+
+Route::get('/todos/not_comp', 'TodoController@notcomp');
+
+Route::get('/todos/todo-search1','TodoController@searchnotcomp');
+
+Route::get('/todos/complete', 'TodoController@comp');
+
+Route::get('/todos/todo-search2','TodoController@searchcomp');
+
+
